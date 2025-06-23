@@ -55,24 +55,11 @@ const Hero = () => {
       },
     });
 
-    // Safely hook into video loaded metadata
-    if (videoRef.current) {
-      // Reset video to start at 0 before animating
-      videoRef.current.currentTime = 0;
-      if (videoRef.current.readyState >= 1) {
-        // Metadata already loaded
-        tl.to(videoRef.current, {
-          currentTime: videoRef.current.duration,
-        });
-      } else {
-        videoRef.current.onloadedmetadata = () => {
-          tl.to(videoRef.current, {
-            currentTime: videoRef.current.duration,
-            ease: 'none',
-          });
-        };
-      }
-    }
+    videoRef.current.onloadedmetadata = () => {
+      tl.to(videoRef.current, {
+        currentTime: videoRef.current.duration,
+      });
+    };
   }, []);
 
   return (
