@@ -8,7 +8,7 @@
 }
 
 @theme {
-  --color-yellow: #e7d393;
+  --color-yellow: #fff085;
   --color-white-100: #efefef;
   --font-sans: 'Mona Sans', sans-serif;
   --font-modern-negra: 'Modern Negra', sans-serif;
@@ -37,7 +37,7 @@ body {
 }
 
 @utility text-gradient {
-  background: linear-gradient(to bottom, #ffffff, #898989);
+  background: linear-gradient(to bottom, #fff085, #9a9027);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
