@@ -78,17 +78,17 @@ const Hero = () => {
   return (
     <>
       <section id='hero' className='relative'>
-        <h1 className='title mb-8'>Gin Tonic</h1>
+        <h1 className='title'>Gin Tonic</h1>
 
         <img
           src='/images/hero-left-leaf.png'
           alt='left-leaf'
-          className='left-leaf absolute left-0 top-0'
+          className='left-leaf'
         />
         <img
           src='/images/hero-right-leaf.png'
           alt='right-leaf'
-          className='right-leaf absolute right-0 top-0'
+          className='right-leaf'
         />
         <div className='body'>
           <div className='content'>
@@ -110,15 +110,13 @@ const Hero = () => {
         </div>
       </section>
 
-      <div className='video w-full rounded-lg bg-black'>
+      <div className='video absolute inset-0'>
         <video
           ref={videoRef}
-          src='/videos/gin.mp4'
+          src='/videos/output.mp4'
           muted
           playsInline
           preload='auto'
-          className='w-full h-auto object-cover opacity-0 transition-opacity duration-700 ease-out'
-          onLoadedData={() => videoRef.current?.classList.remove('opacity-0')}
         />
       </div>
     </>
