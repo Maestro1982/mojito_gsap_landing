@@ -1,9 +1,13 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useState } from 'react';
 
 import { navLinks } from '../../constants';
 
 const Navbar = () => {
+  const [isActiveLink, setIsActiveLink] = useState('home');
+
   // Create a GSAP timeline with a ScrollTrigger
   useGSAP(() => {
     const navTween = gsap.timeline({
@@ -26,18 +30,35 @@ const Navbar = () => {
         ease: 'power1.inOut', // Smooth easing
       }
     );
-  });
+
+    // --- Highlight nav links based on scroll position ---
+    navLinks.forEach((link) => {
+      ScrollTrigger.create({
+        trigger: `#${link.id}`,
+        start: 'top center',
+        end: 'bottom center',
+        onEnter: () => setIsActiveLink(link.id),
+        onEnterBack: () => setIsActiveLink(link.id),
+      });
+    });
+  }, []);
+
   return (
     <nav>
       <div>
-        <a href='#home' className='flex items-center gap-2'>
+        <a href='#home' className='flex items-center gap-2 cursor-pointer'>
           <img src='/images/logo.png' alt='logo' />
           <p className='hover:text-yellow-200'>The Alchemist</p>
         </a>
 
         <ul>
           {navLinks.map((link) => (
-            <li key={link.id} className='hover:text-yellow-200'>
+            <li
+              key={link.id}
+              className={`hover:text-yellow-200 ${
+                isActiveLink === link.id ? 'text-yellow-200 font-bold' : ''
+              }`}
+            >
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
           ))}

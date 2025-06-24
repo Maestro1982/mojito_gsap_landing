@@ -37,7 +37,7 @@ const Cocktails = () => {
       />
 
       <div className='list container mx-auto px-5 relative z-10 flex md:flex-row flex-col justify-between items-start gap-20 pt-40'>
-        <div className='popular md:ml-0'>
+        <div className='popular md:ml-18'>
           <h2>Most popular cocktails:</h2>
           <ul>
             {cocktailLists.map(({ name, country, detail, price }) => (
@@ -54,7 +54,7 @@ const Cocktails = () => {
           </ul>
         </div>
 
-        <div className='popular md:ml-[6rem]'>
+        <div className='popular md:mr-[0.75rem]'>
           <h2>Most loved mocktails:</h2>
           <ul>
             {mockTailLists.map(({ name, country, detail, price }) => (
