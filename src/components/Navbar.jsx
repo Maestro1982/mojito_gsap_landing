@@ -57,7 +57,7 @@ const Navbar = () => {
   return (
     <nav>
       <div>
-        <a href='#home' className='flex items-center gap-2 cursor-pointer'>
+        <a href='#' className='flex items-center gap-2 cursor-pointer'>
           <img src='/images/logo.png' alt='logo' />
           <p className='hover:text-yellow-200'>The Alchemist</p>
         </a>
