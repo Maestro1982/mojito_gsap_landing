@@ -21,13 +21,13 @@ const cocktailLists = [
   {
     name: 'Cosmopolitan',
     country: 'US',
-    detail: 'Battle',
+    detail: '180 ml',
     price: '€12',
   },
   {
     name: 'Long Island Iced Tea',
     country: 'AU',
-    detail: 'Battle',
+    detail: '225 ml',
     price: '€15',
   },
   {
@@ -48,13 +48,13 @@ const mockTailLists = [
   {
     name: 'Tropical Bloom',
     country: 'US',
-    detail: 'Battle',
+    detail: '175 ml',
     price: '€10',
   },
   {
     name: 'Passionfruit Mint',
     country: 'US',
-    detail: 'Battle',
+    detail: '200 ml',
     price: '€9',
   },
   {
