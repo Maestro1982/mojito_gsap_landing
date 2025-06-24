@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { navLinks } from '../../constants';
 
 const Navbar = () => {
-  const [isActiveLink, setIsActiveLink] = useState('home');
+  const [isActiveLink, setIsActiveLink] = useState(null);
 
   // Create a GSAP timeline with a ScrollTrigger
   useGSAP(() => {
@@ -31,6 +31,16 @@ const Navbar = () => {
       }
     );
 
+    // Reset activeLink to null when near top of page (before first section)
+    ScrollTrigger.create({
+      trigger: 'body',
+      start: 'top top',
+      end: 'top+=100 top', // top 100px of the page
+      onEnter: () => setIsActiveLink(null),
+      onLeaveBack: () => setIsActiveLink(null),
+      markers: false,
+    });
+
     // --- Highlight nav links based on scroll position ---
     navLinks.forEach((link) => {
       ScrollTrigger.create({
@@ -39,6 +49,7 @@ const Navbar = () => {
         end: 'bottom center',
         onEnter: () => setIsActiveLink(link.id),
         onEnterBack: () => setIsActiveLink(link.id),
+        markers: false,
       });
     });
   }, []);
