@@ -257,11 +257,11 @@ body {
 
     .masked-container {
       h2 {
-        @apply text-4xl md:text-5xl font-modern-negra text-center mb-10 text-white mt-48;
+        @apply text-4xl md:text-5xl font-modern-negra text-center mb-10 text-white mt-32;
       }
 
       div {
-        @apply opacity-0 md:px-0 px-5 space-y-5 absolute md:bottom-5 bottom-52 left-1/2 -translate-x-1/2;
+        @apply opacity-0 md:px-0 px-5 space-y-5 mx-auto text-center;
 
         h3 {
           @apply md:text-5xl text-2xl text-center font-serif md:w-full w-80 text-white;
@@ -294,7 +294,7 @@ body {
     }
 
     .content {
-      @apply flex flex-col justify-between items-center container mx-auto relative;
+      @apply flex flex-col justify-between items-center container mx-auto relative w-[90%];
 
       .arrows {
         @apply flex items-center justify-between w-full absolute;
@@ -321,7 +321,7 @@ body {
       @apply flex max-md:flex-col gap-10 md:items-center justify-between w-full lg:absolute bottom-0;
 
       .info {
-        @apply space-y-4 lg:translate-y-20;
+        @apply space-y-4 lg:translate-y-18;
 
         #title {
           @apply font-modern-negra md:text-6xl text-3xl text-yellow max-w-40;

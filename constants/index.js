@@ -137,7 +137,7 @@ const socials = [
 const sliderLists = [
   {
     id: 1,
-    name: 'Classic Mojito',
+    name: 'Fruit Margarita',
     image: '/images/drink1.png',
     title: 'Simple Ingredients, Bold Flavor',
     description:
@@ -145,7 +145,7 @@ const sliderLists = [
   },
   {
     id: 2,
-    name: 'Raspberry Mojito',
+    name: 'Classic Margarita',
     image: '/images/drink2.png',
     title: 'A Zesty Classic That Never Fails',
     description:
@@ -161,7 +161,7 @@ const sliderLists = [
   },
   {
     id: 4,
-    name: 'Curacao Mojito',
+    name: 'Apero Spritz',
     image: '/images/drink4.png',
     title: 'Crafted With Care, Poured With Love',
     description:
