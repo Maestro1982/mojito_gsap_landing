@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { navLinks } from '../../constants';
 
@@ -35,23 +35,44 @@ const Navbar = () => {
     ScrollTrigger.create({
       trigger: 'body',
       start: 'top top',
-      end: 'top+=100 top', // top 100px of the page
+      end: 'top+=200 top', // top 200px of the page
       onEnter: () => setIsActiveLink(null),
       onLeaveBack: () => setIsActiveLink(null),
       markers: false,
     });
+  }, []);
 
-    // --- Highlight nav links based on scroll position ---
-    navLinks.forEach((link) => {
-      ScrollTrigger.create({
-        trigger: `#${link.id}`,
-        start: 'top center',
-        end: 'bottom center',
-        onEnter: () => setIsActiveLink(link.id),
-        onEnterBack: () => setIsActiveLink(link.id),
-        markers: false,
+  useEffect(() => {
+    let hasActivatedAny = false;
+
+    const timeout = setTimeout(() => {
+      navLinks.forEach((link) => {
+        ScrollTrigger.create({
+          trigger: `#${link.id}`,
+          start: 'top center',
+          end: 'bottom center',
+          onEnter: () => {
+            if (!hasActivatedAny) {
+              hasActivatedAny = true;
+              return;
+            }
+            setIsActiveLink(link.id);
+          },
+          onEnterBack: () => {
+            if (!hasActivatedAny) {
+              hasActivatedAny = true;
+              return;
+            }
+            setIsActiveLink(link.id);
+          },
+          markers: false,
+        });
       });
-    });
+
+      ScrollTrigger.refresh();
+    }, 100);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
